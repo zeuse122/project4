@@ -1,36 +1,36 @@
 .catalog {
     padding-bottom: 100px;
     &__tabs {
-        margin-bottom: 0;
-        padding-left: 0;
         margin-top: 70px;
         list-style-type: none;
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-bottom: 0;
+        padding-left: 0;
     }
-    &__tab  {
-        line-height: 48px;
-        text-align: center;    
+    &__tab {
         width: 220px;
         height: 50px;
         border: 2px solid #d0d0d0;
         color: #6b6b6b;
         font-size: 18px;
-        font-weight: 500;
+        font-weight: 400;
         text-transform: uppercase;
+        text-align: center;
+        line-height: 48px;
         transform: skewX(-25deg);
         margin: 0 5px;
         cursor: pointer;
         transition: 0.5s all;
         &:hover {
             box-shadow: 3px 3px 20px $main-color;
-            border:none;
+            border: none;
         }
         div {
             transform: skewX(25deg);
         }
-        &_active{
+        &_active {
             color: #fff;
             background-color: $main-color;
             border: none;
@@ -38,11 +38,14 @@
     }
     &__content {
         margin-top: 60px;
-        display: flex;
+        display: none;
         justify-content: space-between;
         flex-wrap: wrap;
+        &_active {
+            display: flex;
+        }
     }
-    &-item{
+    &-item {
         width: 300px;
         min-height: 440px;
         border: 2px solid #e8e8e8;
@@ -65,18 +68,19 @@
         &__descr {
             margin-top: 16px;
             color: #0d0d0d;
-            text-align: center;
             font-size: 14px;
             font-weight: 300;
+            text-align: center;
         }
         &__link {
             display: block;
-            text-align: center;
             margin-top: 17px;
-            color:$main-color;
+            color: $main-color;
             font-size: 14px;
             font-weight: 500;
             text-decoration: underline;
+            text-align: center;
+            text-transform: uppercase;
             &:hover {
                 color: $main-color;
             }
@@ -111,6 +115,7 @@
             width: 50%;
             margin-right: 0px;
             transform: translateX(-100%);
+            transition: 0.5s all;
             &_active {
                 transform: translateX(0%);
                 margin-right: 20px;
@@ -118,8 +123,8 @@
         }
         &__list {
             position: relative;
-            margin-left: 20px;
             width: 50%;
+            margin-left: 20px;
             transform: translateX(0%);
             padding-right: 20px;
             transition: 0.5s all;
@@ -131,11 +136,12 @@
                 margin-left: 0px;
             }
             li {
+                position: relative;
                 color: #555555;
                 font-size: 14px;
                 font-weight: 300;
                 margin-bottom: 20px;
-                &::before {
+                &:before {
                     content: '';
                     position: absolute;
                     width: 5px;
@@ -144,7 +150,7 @@
                     left: -14px;
                     top: 7px;
                 }
-            }           
+            }
         }
         &__back {
             position: absolute;
