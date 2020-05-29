@@ -32,4 +32,77 @@ $(document).ready(function(){
     
         toggleSlide('.catalog-item__link');
         toggleSlide('.catalog-item__back');
-    });
+
+        // Modal
+
+        $('[data-modal=consult]').on('click',function(){
+            $('.overlay,#consult').fadeIn('slow');
+        });
+        $('.modal__close').on('click',function(){
+            $('.overlay,#consult,#thanks,#order').fadeOut('slow');
+        });
+
+        $('.button_mini').each(function(i){
+            $(this).on('click',function(){
+                $('#order .modal__descr').text($('.catalog-item__subtitle').eq(i).text());
+                $('.overlay,#order').fadeIn('slow');
+            })
+        });
+
+        function valideForms(form){
+            $(form).validate({
+                rules: {
+                    name: "required",
+                    phone: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    }
+                },
+                messages: {
+                    name: "Пожалуйста,введите своё имя",
+                    phone: "Пожалуйста,введите свой номер",
+                    email: {
+                        required:"Пожалуйста,введите свою почту",
+                        email:"Неправильно введён адрес почты"
+                    }
+                }
+            });   
+        };    
+
+        valideForms('#consult-form');
+        valideForms('#consult form');
+        valideForms('#order form');
+
+        $('input[name=phone]').mask("+7 (999) 999-99-99");
+
+        $('form').submit(function(e){
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "mailer/smart.php",
+                data: $(this).serialize()
+            }).done(function(){
+                $(this).find("input").val("");
+                $('#consult ,#order').fadeOut();
+                $('.overlay,#thanks').fadeIn('slow')
+
+                $('form').trigger('reset');
+            });
+        });
+
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 1600) {
+                $('.pageup').fadeIn('slow');
+            } else {
+                $('.pageup').fadeOut('slow');
+            }
+        });
+
+        $("a[href=#up]").click(function(){
+                const _href = $(this).attr("href");
+                $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
+                return false;
+        });
+
+});
