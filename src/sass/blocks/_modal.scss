@@ -52,3 +52,14 @@
 #consult,#order,#thanks {
     display: none;
 }
+@media ( max-width: 575px ){
+.modal{
+    width: 310px;
+    padding: 30px 5px 20px;
+    border-radius: 2%;
+    &__close {
+        right: 5px;
+        top: 5px;
+    }
+}
+}

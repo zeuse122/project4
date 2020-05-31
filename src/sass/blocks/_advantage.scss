@@ -48,3 +48,28 @@
         }
     
 }
+@media ( max-width: 767px ){
+    .advantage{        
+        padding: 35px 0px 39px;
+        &__wrapper {
+            align-items: center;
+            flex-direction: column;
+            margin-top: 35px;
+        }        
+        &__item {
+            margin-bottom: 10px;
+            max-width: 360px;
+            img {
+                width: 80px;
+                height: 80px;
+            }
+            h3 {
+              margin-top: 18px; 
+            }
+        }
+        &__desr {
+            margin-top: 6px;
+            font-size: 16px;
+        }
+    }    
+}

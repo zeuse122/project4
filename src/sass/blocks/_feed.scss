@@ -32,3 +32,35 @@
         margin-top: 10px;
     }
 }
+@media (max-width: 991px){
+.feed{
+    &__item{
+        padding: 5px 10px;
+        align-items: center;
+        margin-top: 50px;
+    }
+    &__text{
+        padding-right: 0px;
+    }
+}
+}
+@media (max-width: 767px){
+.feed{
+    &__text{
+        margin-left: 30px;
+    }
+}
+}
+@media ( max-width: 575px ){
+.feed{
+    &__item{
+        flex-direction: column;
+    }
+    &__text{
+        margin-left: 0px;
+    }
+    &__img {
+        margin-bottom: 20px;
+    }
+}
+}

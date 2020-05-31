@@ -30,3 +30,47 @@
         }
     }
 }
+@media  ( max-width: 991px ){
+.slick-dots {
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    padding: 10px 0;
+        li {
+            margin-top: 10px;
+            margin-right: 10px;
+            button {                
+                color: #fff;
+                border: none;
+                background-color: $main-color;
+                border-radius: 50%;
+                &:hover {
+                    box-shadow: 3px 3px 20px $main-color;
+                    border: none;
+                }
+            }
+            &:last-child{
+                margin-right: 0;
+            }
+        }          
+    }
+}
+@media (max-width: 767px){
+    .carousel {
+        padding: 41px 5px 21px;
+        &__iner{
+            width: 566px;
+            img {
+                width:100%;
+            }
+        }
+    }
+}
+@media ( max-width: 575px ){
+    .carousel {
+        padding: 21px 3px 11px;
+        &__iner{
+            width: 311px;
+        }
+    }
+}
